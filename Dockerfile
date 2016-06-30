@@ -3,10 +3,16 @@ MAINTAINER BGP
 
 ENV RUBY_VERSION 2.2.0
 
-RUN rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6 \
+RUN set -x \
+    && rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6 \
     && rpm -Kih http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm \
+    && yum -y groupinstall "Development Tools" \
     && yum --enablerepo=epel -y install libyaml libyaml-devel readline-devel \
             ncurses-devel gdbm-devel tcl-devel openssl-devel db4-devel libffi-devel \
-    && rpm -Kih https://github.com/feedforce/ruby-rpm/releases/download/2.2.0/ruby-2.2.0-1.el6.x86_64.rpm
+    && echo "Installing Ruby" \
+    && rpm -Kih https://github.com/feedforce/ruby-rpm/releases/download/2.2.0/ruby-2.2.0-1.el6.x86_64.rpm \
+    && echo "Installing Node.js" \
+    && curl -sL https://rpm.nodesource.com/setup_5.x | bash - \
+    && yum install -y nodejs
 
 ENTRYPOINT /bin/bash
