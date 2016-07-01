@@ -1,7 +1,7 @@
 FROM centos:centos6.6
 MAINTAINER BGP
 
-ENV RUBY_VERSION 2.2.0
+ENV RUBY_VERSION 2.2.4
 ENV NODEJS_VERSION 5.10.0
 
 RUN set -x \
@@ -11,9 +11,10 @@ RUN set -x \
     && yum --enablerepo=epel -y install libyaml libyaml-devel readline-devel \
             ncurses-devel gdbm-devel tcl-devel openssl-devel db4-devel libffi-devel \
     && echo "Installing Ruby" \
-    && rpm -Kih "https://github.com/feedforce/ruby-rpm/releases/download/2.2.0/ruby-${RUBY_VERSION}-1.el6.x86_64.rpm" \
+    && rpm -Kih "https://github.com/feedforce/ruby-rpm/releases/download/${RUBY_VERSION}/ruby-${RUBY_VERSION}-1.el6.x86_64.rpm" \
     && echo "Installing Node.js" \
     && curl -sL https://rpm.nodesource.com/setup_5.x | bash - \
-    && yum install -y "nodejs-${NODEJS_VERSION}-1nodesource.el6"
+    && yum install -y "nodejs-${NODEJS_VERSION}-1nodesource.el6" \
+    && yum clean all
 
 ENTRYPOINT /bin/bash
