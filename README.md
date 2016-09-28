@@ -2,6 +2,6 @@
 A Docker image based on CentOS with Ruby and Node.js installed
 
 ```bash
-docker build -t registry.foobar.com/centos-ruby-node:6.6-2.3.1-6.6.0
-docker push registry.foobar.com/centos-ruby-node:6.6-2.3.1-6.6.0
+docker build -t registry.foobar.com/centos-ruby-node:6.6-2.3.1-6.7.0
+docker push registry.foobar.com/centos-ruby-node:6.6-2.3.1-6.7.0
 ```
