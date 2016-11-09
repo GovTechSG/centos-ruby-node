@@ -2,7 +2,7 @@ FROM centos:centos6.6
 MAINTAINER BGP
 
 ENV RUBY_VERSION 2.3.1
-ENV NODEJS_VERSION 6.7.0
+ENV NODEJS_VERSION 6.9.1
 
 RUN set -x \
     && rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6 \
