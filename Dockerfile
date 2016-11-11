@@ -2,7 +2,7 @@ FROM centos:centos6.6
 MAINTAINER BGP
 
 ENV RUBY_VERSION 2.3.1
-ENV NODEJS_VERSION 6.9.1
+ENV NODEJS_VERSION 7.1.0
 
 RUN set -x \
     && rpm --import http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6 \
@@ -13,7 +13,7 @@ RUN set -x \
     && echo "Installing Ruby" \
     && rpm -Kih "https://github.com/feedforce/ruby-rpm/releases/download/${RUBY_VERSION}/ruby-${RUBY_VERSION}-1.el6.x86_64.rpm" \
     && echo "Installing Node.js" \
-    && curl -sL https://rpm.nodesource.com/setup_6.x | bash - \
+    && curl -sL https://rpm.nodesource.com/setup_7.x | bash - \
     && yum install -y "nodejs-${NODEJS_VERSION}-1nodesource.el6" \
     && yum clean all
 
