@@ -14,7 +14,7 @@ RUN set -x \
     && rpm -Kih "https://github.com/feedforce/ruby-rpm/releases/download/${RUBY_VERSION}/ruby-${RUBY_VERSION}-1.el6.x86_64.rpm" \
     && echo "Installing Node.js" \
     && curl -sL https://rpm.nodesource.com/setup_7.x | bash - \
-    && yum install --nogpgcheck -y "nodejs-${NODEJS_VERSION}-1nodesource.el6" \
+    && yum install -y "nodejs-${NODEJS_VERSION}-1nodesource.el6" \
     && yum clean all
 
 ENTRYPOINT /bin/bash
