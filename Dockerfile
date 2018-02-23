@@ -11,7 +11,7 @@ RUN set -x \
     && yum --enablerepo=epel -y install libyaml libyaml-devel readline-devel \
             ncurses-devel gdbm-devel tcl-devel openssl-devel db4-devel libffi-devel \
     && echo "Yum updating" \
-    && yum update -y \
+    && yum -y update \
     && echo "Installing Ruby" \
     && rpm -Kih "https://github.com/feedforce/ruby-rpm/releases/download/${RUBY_VERSION}/ruby-${RUBY_VERSION}-1.el6.x86_64.rpm" \
     && echo "Installing Node.js" \
